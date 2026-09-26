@@ -1,0 +1,161 @@
+/* Computer Science @ Bonner/Prendie — site styles
+   Built for Chromebook screens (~1366x768): big text, big tap targets. */
+
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #16203a;
+  --muted: #5b6785;
+  --accent: #2457ff;
+  --accent-dark: #163ec4;
+  --border: #dfe3ee;
+  --shadow: 0 2px 6px rgba(22, 32, 58, 0.06), 0 12px 32px rgba(22, 32, 58, 0.08);
+  --shadow-hover: 0 4px 10px rgba(36, 87, 255, 0.12), 0 20px 44px rgba(36, 87, 255, 0.18);
+  --radius: 1.25rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 20px;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+a {
+  color: var(--accent);
+}
+
+.page {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+
+/* Header */
+
+.site-header {
+  margin-bottom: 3rem;
+}
+
+.site-header h1 {
+  font-size: clamp(2.5rem, 6vw, 4.25rem);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.site-header h1 .at {
+  color: var(--accent);
+}
+
+.site-header p {
+  font-size: 1.25rem;
+  color: var(--muted);
+  margin: 1rem 0 0;
+}
+
+/* Card grid */
+
+.cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 14rem;
+  padding: 2rem;
+  background: var(--surface);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--text);
+  text-decoration: none;
+  transition: transform 150ms ease, box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-hover);
+}
+
+.card:focus-visible {
+  outline: 4px solid var(--accent);
+  outline-offset: 4px;
+  border-color: var(--accent);
+}
+
+.card:active {
+  transform: translateY(-1px);
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin: 0 0 0.5rem;
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0;
+}
+
+/* Lab pages */
+
+.back-link {
+  display: inline-block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  padding: 0.5rem 0;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.lab-intro {
+  font-size: 1.35rem;
+  color: var(--muted);
+  max-width: 40rem;
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 18px;
+  }
+
+  .page {
+    padding: 2rem 1.25rem 3rem;
+  }
+
+  .card {
+    min-height: 10rem;
+    padding: 1.5rem;
+  }
+}
