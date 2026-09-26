@@ -153,6 +153,8 @@
     hueMarker.style.top = 50 - 50 * ringR * Math.cos(rad) + "%";
     svMarker.style.left = state.s * 100 + "%";
     svMarker.style.top = (1 - state.v) * 100 + "%";
+    hueMarker.style.setProperty("--c", "hsl(" + state.h.toFixed(1) + ", 100%, 50%)");
+    svMarker.style.setProperty("--c", hex);
 
     // Name and dropdown
     const name = nameByHex.get(hex);
@@ -203,6 +205,7 @@
     else return;
 
     wheel.setPointerCapture(event.pointerId);
+    wheel.classList.add("dragging");
     event.preventDefault();
     if (dragMode === "hue") applyHue(p);
     else applySv(p);
@@ -217,6 +220,7 @@
 
   function endDrag() {
     dragMode = null;
+    wheel.classList.remove("dragging");
   }
   wheel.addEventListener("pointerup", endDrag);
   wheel.addEventListener("pointercancel", endDrag);
