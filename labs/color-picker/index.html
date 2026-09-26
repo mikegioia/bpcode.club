@@ -5,15 +5,78 @@
   <title>Color Picker — Computer Science @ Bonner/Prendie</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="../../css/site.css">
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <main class="page">
-    <a class="back-link" href="../../">&larr; Back to all labs</a>
-    <header class="site-header">
-      <p class="card-subtitle">Lab 3</p>
-      <h1>Color Picker</h1>
+<body class="app-body">
+  <div class="app">
+
+    <header class="topbar">
+      <a class="back-link" href="../../index.html">&larr; All labs</a>
+      <h1><span class="lab-number">Lab 3</span> Color Picker</h1>
     </header>
-    <p class="lab-intro">Coming soon.</p>
-  </main>
+
+    <main class="workspace">
+
+      <!-- The wheel: hue ring around a saturation/brightness square -->
+      <section class="wheel-area">
+        <div class="wheel" id="wheel">
+          <div class="hue-ring"></div>
+          <div class="hue-marker" id="hue-marker"></div>
+          <div class="sv-square" id="sv-square">
+            <div class="sv-marker" id="sv-marker"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The readouts and controls -->
+      <aside class="side">
+
+        <div class="swatch" id="swatch"></div>
+
+        <div class="readouts">
+          <div class="readout">
+            <span class="readout-label">Hex</span>
+            <output class="readout-value" id="hex-value">#2457FF</output>
+            <button class="copy" type="button" id="copy-hex" title="Copy hex code">Copy</button>
+          </div>
+          <div class="readout">
+            <span class="readout-label">Name</span>
+            <output class="readout-value readout-name none" id="name-value">no name for this color</output>
+          </div>
+        </div>
+
+        <div class="control">
+          <p class="control-label">RGB sliders <span class="control-note">(values in hex)</span></p>
+          <div class="slider red">
+            <label for="r">R</label>
+            <input type="range" id="r" min="0" max="255" value="36">
+            <input type="text" id="r-hex" maxlength="2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Red value in hex" value="24">
+          </div>
+          <div class="slider green">
+            <label for="g">G</label>
+            <input type="range" id="g" min="0" max="255" value="87">
+            <input type="text" id="g-hex" maxlength="2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Green value in hex" value="57">
+          </div>
+          <div class="slider blue">
+            <label for="b">B</label>
+            <input type="range" id="b" min="0" max="255" value="255">
+            <input type="text" id="b-hex" maxlength="2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="Blue value in hex" value="FF">
+          </div>
+        </div>
+
+        <div class="control">
+          <label class="control-label" for="named-color">Named HTML colors</label>
+          <select id="named-color">
+            <option value="">Choose a color name&hellip;</option>
+          </select>
+          <span class="hint">Open the list and start typing a name to jump to it.</span>
+        </div>
+
+      </aside>
+    </main>
+  </div>
+
+  <script src="colors.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
