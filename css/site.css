@@ -56,6 +56,15 @@ a {
   margin: 0;
 }
 
+.site-header h1 .school {
+  display: block;
+  font-size: 0.5em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  margin-top: 0.35em;
+}
+
 .site-header h1 .at {
   color: var(--accent);
 }
